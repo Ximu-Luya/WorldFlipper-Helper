@@ -9,10 +9,13 @@
       <top-nav></top-nav>
 
       <!-- 页面主体 -->
-      <home v-if="tabCurrent == 'pages/home/index'"></home>
-      <handbook v-if="tabCurrent == 'pages/handbook/index'" @toggleDrawer="toggleDrawerVisible"></handbook>
-      <lineup v-if="tabCurrent == 'pages/lineup/index'"></lineup>
-      <about v-if="tabCurrent == 'pages/about/index'"></about>
+      <view class="index-page-content">
+        <home v-if="tabCurrent == 'pages/home/index'"></home>
+        <handbook v-if="tabCurrent == 'pages/handbook/index'"></handbook>
+        <lineup v-if="tabCurrent == 'pages/lineup/index'"></lineup>
+        <about v-if="tabCurrent == 'pages/about/index'"></about>
+        <view class="cu-tabbar-height"></view>
+      </view>
       
       <!-- 底部导航栏 -->
       <foot-nav></foot-nav>
