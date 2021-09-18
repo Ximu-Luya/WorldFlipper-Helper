@@ -1,7 +1,7 @@
 <template>
   <view class="character-list bg-white grid grid-square col-5">
     <template v-for="(item, index) in characters">
-      <avatar :key="index" :avatar-info="item" />
+      <avatar :key="index" :avatar-info="item"/>
     </template>
   </view>
 </template>
