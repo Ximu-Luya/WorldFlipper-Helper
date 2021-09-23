@@ -1,13 +1,13 @@
 <template>
   <view class="avatar-container bg-img">
     <view class="avatar">
-      <img src="/static/image/avatar.png">
+      <image src="/static/image/avatar.png" lazy-load>
     </view>
     <view class="star">
-      <img :src="`/static/image/icon/star-${avatarInfo.star}.png`">
+      <image :src="`/static/image/icon/star-${avatarInfo.star}.png`" lazy-load>
     </view>
     <view class="element">
-      <img :src="`/static/image/icon/${avatarInfo.element}.png`">
+      <image :src="`/static/image/icon/${avatarInfo.element}.png`" lazy-load>
     </view>
   </view>
 </template>
