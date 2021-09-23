@@ -1,9 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import filters from './modules/filters.js'
+
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
+  strict: process.env.NODE_ENV !== 'production',
   state: {
     tabCurrent: "pages/handbook/index",
     pageCurrent: "",
@@ -22,6 +25,9 @@ const store = new Vuex.Store({
       commit("setTabCurrent", currentTab);
     },
   },
+  modules: {
+    filters
+  }
 });
 
 export default store;

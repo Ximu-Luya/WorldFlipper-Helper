@@ -43,8 +43,6 @@
 </template>
 
 <script>
-import topNav from "../components/topNav.vue";
-import footNav from "../components/footNav.vue";
 import home from "./home/index.vue";
 import handbook from "./handbook/index.vue";
 import lineup from "./lineup/index.vue";
@@ -62,8 +60,6 @@ export default {
   },
 
   components: {
-    topNav,
-    footNav,
     home,
     handbook,
     lineup,
