@@ -12,7 +12,7 @@ import Avatar from '../../components/avatar.vue'
 export default {
   data(){
     return {
-      characters: new Array(100).fill({star: 5, element: 'nature'}, 0, 100)
+      characters: new Array(100).fill({star: 5, attribute: 'nature'}, 0, 100)
     }
   },
   mounted(){},

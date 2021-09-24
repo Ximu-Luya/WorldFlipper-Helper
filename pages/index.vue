@@ -75,4 +75,7 @@ export default {
 
 <style lang="scss">
 @import '@/colorui/drawer.css';
+.DrawerWindow{
+  padding-bottom: calc(env(safe-area-inset-bottom) / 2);
+}
 </style>

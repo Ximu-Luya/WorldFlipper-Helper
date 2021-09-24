@@ -1,7 +1,7 @@
 <template>
   <view class="filter-content">
     <template v-for="(filterItem, filterIndex) in filterConfig">
-      <view class="cu-bar bg-white  margin-top solid-bottom" :key="filterIndex">
+      <view class="cu-bar bg-white solid-bottom" :key="filterIndex">
         <view class="action">
           <text class="cuIcon-title text-blue"></text>{{filterItem.title}}
         </view>
@@ -12,7 +12,7 @@
             <label :key="index" class="checkbox">
               <checkbox :value="item" style="transform:scale(0.6)"/>
               <image v-if="filterItem.imageTag" :src="`/static/image/icon/${item}.png`" mode="heightFix" class="filter-image">
-              <text v-if="filterItem.textTags.length !== 0">{{filterItem.textTags[index]}}</text>
+              <text v-if="filterItem.textTags && filterItem.textTags.length !== 0">{{filterItem.textTags[index]}}</text>
             </label>
           </template>
         </checkbox-group>
@@ -70,7 +70,7 @@ export default {
         {title: '星级', values: ['star-1', 'star-2','star-3','star-4','star-5',], imageTag: true},
         {title: '属性', values: ['fire', 'nature', 'thunder', 'water', 'light', 'dark'], imageTag: true},
         {title: '职业', values: ['special', 'fighter', 'shooter', 'supporter', 'swordsman'], imageTag: true, textTags: ['特殊', '格斗家', '射手', '辅助', '剑士']},
-        {title: '性别', values: ['man', 'women', 'unknown', 'lili'], textTags: ['男', '女', '不明', 'リリィ(莉莉)']},
+        {title: '性别', values: ['male', 'female', 'unknown', 'lili'], textTags: ['男', '女', '不明', 'リリィ(莉莉)']},
         {title: '种族', values: ['human', 'dragon', 'demon', 'monster', 'beast', 'immortal', 'plant', 'elf', 'mechanical', 'amphibious'], textTags: ['人', '龙', '妖', '魔', '兽', '不死', '植物', '精灵', '机械', '两栖']},
       ],
       sortFilters: [

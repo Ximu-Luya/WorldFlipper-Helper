@@ -6,8 +6,8 @@
     <view class="star">
       <image :src="`/static/image/icon/star-${avatarInfo.star}.png`" lazy-load>
     </view>
-    <view class="element">
-      <image :src="`/static/image/icon/${avatarInfo.element}.png`" lazy-load>
+    <view class="attribute">
+      <image :src="`/static/image/icon/${avatarInfo.attribute}.png`" lazy-load>
     </view>
   </view>
 </template>
@@ -61,7 +61,7 @@ export default {
     height: 18%;
     background-color: rgba(0,0,0,.5);
   }
-  .element{
+  .attribute{
     position: absolute;
     right: 0;
     top: 0;
