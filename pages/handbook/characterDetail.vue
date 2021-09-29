@@ -33,45 +33,14 @@
                 <text class="info-label">属性</text>
 
                 <!-- 属性内容值 -->
-                <template v-if="attribute==='fire'">
-                  <image :src="`/static/image/icon/${attribute}.png`" mode="heightFix" style="height: 100%"/>火
-                </template>
-                <template v-if="attribute==='nature'">
-                  <image :src="`/static/image/icon/${attribute}.png`" mode="heightFix" style="height: 100%"/>风
-                </template>
-                <template v-if="attribute==='thunder'">
-                  <image :src="`/static/image/icon/${attribute}.png`" mode="heightFix" style="height: 100%"/>雷
-                </template>
-                <template v-if="attribute==='water'">
-                  <image :src="`/static/image/icon/${attribute}.png`" mode="heightFix" style="height: 100%"/>水
-                </template>
-                <template v-if="attribute==='light'">
-                  <image :src="`/static/image/icon/${attribute}.png`" mode="heightFix" style="height: 100%"/>光
-                </template>
-                <template v-if="attribute==='dark'">
-                  <image :src="`/static/image/icon/${attribute}.png`" mode="heightFix" style="height: 100%"/>暗
-                </template>
+                <image :src="`/static/image/icon/${attribute}.png`" mode="heightFix" class="icon"/>{{attributeName}}
               </view>
               <!-- 类型 -->
               <view class="info-item">
                 <text class="info-label">类型</text>
                 
                 <!-- 类型内容值 -->
-                <template v-if="type==='special'">
-                  <image :src="`/static/image/icon/${type}.png`" mode="heightFix" style="height: 100%"/>特殊
-                </template>
-                <template v-if="type==='fighter'">
-                  <image :src="`/static/image/icon/${type}.png`" mode="heightFix" style="height: 100%"/>格斗家
-                </template>
-                <template v-if="type==='supporter'">
-                  <image :src="`/static/image/icon/${type}.png`" mode="heightFix" style="height: 100%"/>辅助
-                </template>
-                <template v-if="type==='shooter'">
-                  <image :src="`/static/image/icon/${type}.png`" mode="heightFix" style="height: 100%"/>射手
-                </template>
-                <template v-if="type==='swordsman'">
-                  <image :src="`/static/image/icon/${type}.png`" mode="heightFix" style="height: 100%"/>剑士
-                </template>
+                <image :src="`/static/image/icon/${type}.png`" mode="heightFix" class="icon"/>{{typeName}}
               </view>
             </view>
           </view>
@@ -152,9 +121,13 @@ export default {
       // 星级
       starRating: 5,
       // 属性
-      attribute: 'nature',
+      attribute: 'wind',
+      // 属性名称
+      attributeName: '风',
       // 类型
       type: 'swordsman',
+      // 类型名称
+      typeName: '剑士',
       // HP血量
       HP: 3546,
       // ATK攻击力
@@ -188,7 +161,9 @@ export default {
       CV: '麻仓もも'
     }
   },
-  computed:{},
+  computed:{
+    
+  },
   props: [],
   mounted(){},
   methods: {}
@@ -225,50 +200,86 @@ page {
     // 角色信息内容
     .content{
       background: rgba(255,255,255,0.95);
-      overflow: hidden;
+      position: relative;
+      z-index: -90;
+      box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
 
-      // 黑色内凹箭头label
-      .label{
-        flex: 0 0 auto;
-        height: 36rpx;
-        line-height: 36rpx;
-        width: 110rpx;
-        margin-right: 30rpx;
-        margin-left: 10rpx;
-        z-index: 0;
-        position: relative;
-        color: #F7F7F7;
-        background-color: #323232;
-        text-align: center;
-        font-size: 24rpx;
+      &::before{
+        content: '';
+        position: absolute;
+        background: rgba(255,255,255,0.95);
+        transform: translateX(-50%);
+        top: -40rpx; left: 50%;
+        height: 40rpx;
+        width: 150rpx;
+        border-radius: 10rpx 10rpx 0 0;
+        z-index: -80;
+        box-shadow: 0 -5rpx 20rpx rgba(0, 0, 0, 0.1);
+        
+      }
 
-        &::before{
-          content: '';
-          position: absolute;
-          z-index: -1;
-          background-color: #FF9800;
-          top: 0; bottom: 0;
-          left: -10rpx;
-          width: 10rpx;
-        }
+      &::after{
+        content: '';
+        position: absolute;
+        top: -24rpx; left: 50%;
+        height: 26rpx;
+        width: 26rpx;
 
-        &::after{
-          content: '';
-          position: absolute;
-          overflow: hidden;
-          z-index: -2;
-          top: 0; bottom: 0;
-          right: -10rpx;
-          border: 18rpx solid #323232;
-          border-width: 18rpx 18rpx 18rpx 0;
-          border-right: 10rpx solid transparent;
-        }
+        border-width: 0 4rpx 4rpx 0;
+        border-color: #999999;
+        border-style: solid;
+        transform-origin: center;
+        transform: translateX(-50%) rotate(225deg);
+        transition: transform .3s;
+      }
+      &.down::after{
+        transform: translateX(-50%) rotate(45deg);
+        top: -40rpx; left: 50%;
+        transition: transform .3s;
       }
 
       // 带有黑色label的info-box
       .info-box{
         display: flex;
         margin: 16rpx 0;
+
+        // 黑色内凹箭头label
+        .label{
+          flex: 0 0 auto;
+          height: 36rpx;
+          line-height: 36rpx;
+          width: 110rpx;
+          margin-right: 30rpx;
+          margin-left: 10rpx;
+          z-index: 0;
+          position: relative;
+          color: #F7F7F7;
+          background-color: #323232;
+          text-align: center;
+          font-size: 24rpx;
+
+          &::before{
+            content: '';
+            position: absolute;
+            z-index: -1;
+            background-color: #FF9800;
+            top: 0; bottom: 0;
+            left: -10rpx;
+            width: 10rpx;
+          }
+
+          &::after{
+            content: '';
+            position: absolute;
+            overflow: hidden;
+            z-index: -2;
+            top: 0; bottom: 0;
+            right: -10rpx;
+            border: 18rpx solid #323232;
+            border-width: 18rpx 18rpx 18rpx 0;
+            border-right: 10rpx solid transparent;
+          }
+        }
       }
 
       // 角色基础信息
@@ -360,6 +371,11 @@ page {
                   transform: scaleY(1.5) perspective(8rpx) rotateX(5deg);
                   transform-origin: bottom left;
                 }
+              }
+
+              .icon{
+                height: 100%;
+                width: auto;
               }
             }
           }
