@@ -32,12 +32,14 @@
 
     <scroll-view scroll-y class="margin-top" >
       <character v-if="tabCur === 'character'"></character>
+      <weapon v-if="tabCur === 'weapon'"></weapon>
     </scroll-view>
   </view>
 </template>
 
 <script>
-import Character from './character.vue'
+import Character from './components/character.vue'
+import Weapon from './components/weapon.vue';
 import { mapMutations } from 'vuex'
 
 export default {
@@ -47,7 +49,7 @@ export default {
     };
   },
 
-  components: {Character},
+  components: { Character, Weapon },
   props: {},
   methods: {
     // 筛选参数Drawer控制

@@ -68,7 +68,7 @@ export default {
     return {
       filterConfig: [
         {title: '星级', values: ['star-1', 'star-2','star-3','star-4','star-5',], imageTag: true},
-        {title: '属性', values: ['fire', 'nature', 'thunder', 'water', 'light', 'dark'], imageTag: true},
+        {title: '属性', values: ['fire', 'wind', 'thunder', 'water', 'light', 'dark'], imageTag: true},
         {title: '职业', values: ['special', 'fighter', 'shooter', 'supporter', 'swordsman'], imageTag: true, textTags: ['特殊', '格斗家', '射手', '辅助', '剑士']},
         {title: '性别', values: ['male', 'female', 'unknown', 'lili'], textTags: ['男', '女', '不明', 'リリィ(莉莉)']},
         {title: '种族', values: ['human', 'dragon', 'demon', 'monster', 'beast', 'immortal', 'plant', 'elf', 'mechanical', 'amphibious'], textTags: ['人', '龙', '妖', '魔', '兽', '不死', '植物', '精灵', '机械', '两栖']},

@@ -7,19 +7,19 @@
 </template>
 
 <script>
-import Avatar from '../../components/avatar.vue'
+import Avatar from '../../../components/avatar.vue'
 
 export default {
   data(){
     return {
-      characters: new Array(100).fill({star: 5, attribute: 'nature'}, 0, 100)
+      characters: new Array(100).fill({star: 5, attribute: 'fire', avatarImg: '/static/image/weapon.png'}, 0, 100)
     }
   },
   mounted(){},
   components: {Avatar},
   methods: {
     checkDetail(id){
-      uni.navigateTo({ url: '/pages/handbook/characterDetail' })
+      uni.navigateTo({ url: '/pages/handbook/pages/weaponDetail' })
     }
   }
 };

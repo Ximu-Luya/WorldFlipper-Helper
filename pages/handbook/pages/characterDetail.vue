@@ -107,7 +107,7 @@
 </template>
 
 <script>
-import Character from './character.vue'
+import Character from '../components/character.vue'
 
 export default {
   components: {Character},
@@ -187,7 +187,6 @@ export default {
     },
     // 切换箭头
     toggleArrow(isDown){
-      console.log(isDown);
       this.isDown = isDown
     }
   }

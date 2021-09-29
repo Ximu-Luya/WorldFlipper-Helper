@@ -1,7 +1,7 @@
 <template>
   <view class="avatar-container bg-img">
     <view class="avatar">
-      <image src="/static/image/avatar.png" lazy-load>
+      <image :src="avatarInfo.avatarImg" lazy-load>
     </view>
     <view class="star">
       <image :src="`/static/image/icon/star-${avatarInfo.star}.png`" lazy-load>

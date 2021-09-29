@@ -1,5 +1,8 @@
 # HBuilderX配置
 .hbuilderx
 
+# idea配置
+.idea
+
 # 打包文件
 unpackage
