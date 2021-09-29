@@ -6,10 +6,18 @@
     <view class="tachie-img" :style="{backgroundImage: `url(${commonTachie})`, height: `calc(100vh - ${CustomBar}px)`}"></view>
 
     <!-- 滚动的详细信息查看 -->
-    <scroll-view scroll-y class="character-detail" :style="{height: `calc(100vh - ${CustomBar}px)`}">
-      <view class="space"></view>
+    <scroll-view
+      scroll-y
+      class="character-detail"
+      :style="{height: `calc(100vh - ${CustomBar}px)`}"
+      :upper-threshold="200"
+      :lower-threshold="400"
+      @scrolltoupper="toggleArrow(false)"
+      @scrolltolower="toggleArrow(true)"
+    >
+      <view class="space" @tap="viewTachie"></view>
       
-      <view class="content page-safe-bottom">
+      <view class="content" :class="{'down': isDown}">
         <!-- 角色基础信息 -->
         <view class="basic-info">
           <view class="avatar">
@@ -81,15 +89,15 @@
         <!-- 角色其他信息 -->
         <view class="other-info">
           <!-- 种族 -->
-          <view class="info-box skill">
+          <view class="info-box">
             <view class="label">种族</view>{{race}}
           </view>
           <!-- 性别 -->
-          <view class="info-box skill">
+          <view class="info-box">
             <view class="label">性别</view>{{sex}}
           </view>
           <!-- 声优 -->
-          <view class="info-box skill">
+          <view class="info-box">
             <view class="label">CV</view>{{CV}}
           </view>
         </view>
@@ -105,7 +113,10 @@ export default {
   components: {Character},
   data(){
     return {
+      // 顶部导航栏高度
       CustomBar: this.CustomBar,
+      // 角色信息是否被上拉
+      isDown: false,
       // 普通立绘
       commonTachie: 'https://wf.hotimi.com/assets/upload/pic/61c95699-645d-43f5-98fd-c552fefff5d1.png',
       // 觉醒立绘
@@ -166,7 +177,20 @@ export default {
   },
   props: [],
   mounted(){},
-  methods: {}
+  methods: {
+    // 预览立绘
+    viewTachie(){
+      uni.previewImage({
+        current: this.commonTachie,
+        urls: [this.commonTachie, this.awakeTachie]
+      })
+    },
+    // 切换箭头
+    toggleArrow(isDown){
+      console.log(isDown);
+      this.isDown = isDown
+    }
+  }
 }
 </script>
 
@@ -200,6 +224,7 @@ page {
     // 角色信息内容
     .content{
       background: rgba(255,255,255,0.95);
+      padding-bottom: 40rpx;
       position: relative;
       z-index: -90;
       box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
