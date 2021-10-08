@@ -4,5 +4,8 @@
 # idea配置
 .idea
 
+# uni-app模块
+uni_modules
+
 # 打包文件
 unpackage

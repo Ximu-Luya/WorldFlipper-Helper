@@ -107,10 +107,7 @@
 </template>
 
 <script>
-import Character from '../components/character.vue'
-
 export default {
-  components: {Character},
   data(){
     return {
       // 顶部导航栏高度
