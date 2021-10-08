@@ -8,21 +8,6 @@
         <view class="obtain" @tap="showObtain">
           入手方法<image style="height: 32rpx;width: 32rpx;margin-left: 4rpx" src="/static/image/icon/info.png" />
         </view>
-        
-        <!-- 入手方法模态框 -->
-        <view class="cu-modal" :class="modal?'show':''">
-          <view class="cu-dialog">
-            <view class="cu-bar bg-white justify-end">
-              <view class="content">入手方法</view>
-              <view class="action" @tap="hideObtain">
-                <text class="cuIcon-close text-red"></text>
-              </view>
-            </view>
-            <view class="padding-xl">
-              {{obtain}}
-            </view>
-          </view>
-        </view>
       </view>
 
       <view class="content">
@@ -83,6 +68,21 @@
         </view>
       </view>
     </scroll-view>
+
+    <!-- 入手方法模态框 -->
+    <view class="cu-modal" :class="modal?'show':''">
+      <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+          <view class="content">入手方法</view>
+          <view class="action" @tap="hideObtain">
+            <text class="cuIcon-close text-red"></text>
+          </view>
+        </view>
+        <view class="padding-xl">
+          {{obtain}}
+        </view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -134,9 +134,6 @@ export default {
 <style lang="scss" scoped>
 page {
   background-color: white;
-}
-image {
-  // z-index: -1;
 }
 .weapon-detail{
   padding: 30rpx;
