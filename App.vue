@@ -19,12 +19,16 @@ export default {
         Vue.prototype.CustomBar =
           custom.bottom + custom.top - e.statusBarHeight;
         // #endif
+
+        // 获取底部安全区域
+        Vue.prototype.bottomSafeArea = e.screenHeight - e.safeArea.bottom
+        console.log(e);
       },
     });
   },
 };
 </script>
 
-<style>
-@import "./app.css";
+<style lang="scss">
+@import "./app.scss";
 </style>

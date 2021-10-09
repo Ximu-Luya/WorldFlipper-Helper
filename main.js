@@ -4,6 +4,9 @@ import store from './store/index'
 
 import topNav from "./components/topNav.vue";
 import footNav from "./components/footNav.vue";
+// main.js
+import uView from "uview-ui";
+Vue.use(uView);
 
 Vue.component('top-nav', topNav);
 Vue.component('foot-nav', footNav);

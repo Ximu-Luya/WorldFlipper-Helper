@@ -21,7 +21,7 @@
         <!-- 角色基础信息 -->
         <view class="basic-info">
           <view class="avatar">
-            <image class="avatar-img" :src="avatarImg"/>
+            <image class="avatar-img" :src="commonAvatar"/>
             <image class="star" :src="`/static/image/icon/star-${starRating}.png`"/>
           </view>
           <view class="info">
@@ -118,8 +118,10 @@ export default {
       commonTachie: 'https://wf.hotimi.com/assets/upload/pic/61c95699-645d-43f5-98fd-c552fefff5d1.png',
       // 觉醒立绘
       awakeTachie: 'https://wf.hotimi.com/assets/upload/picAwake/61c95699-645d-43f5-98fd-c552fefff5d1-2.png',
-      // 头像图标
-      avatarImg: '/static/image/avatar.png',
+      // 普通头像图标
+      commonAvatar: '/static/image/avatar.png',
+      // 觉醒头像图标
+      awakeAvatar: '/static/image/avatar.png',
       // 中文名
       cnName: '希尔媞',
       // 日文名
@@ -132,9 +134,9 @@ export default {
       attribute: 'wind',
       // 属性名称
       attributeName: '风',
-      // 类型
+      // 职业
       type: 'swordsman',
-      // 类型名称
+      // 职业名称
       typeName: '剑士',
       // HP血量
       HP: 3546,

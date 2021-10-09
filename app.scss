@@ -1,7 +1,9 @@
 /**app.wxss**/
 @import "./colorui/main.css";
 @import "./colorui/icon.css";
-
+/* uni.scss */
+@import './uview-ui/theme.scss';
+@import "./uview-ui/index.scss";
 
 .scrollPage {
   height: 100vh;
