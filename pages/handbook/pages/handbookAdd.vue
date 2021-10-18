@@ -24,16 +24,17 @@
 
           <template v-else-if="item.type==='select'">
             <xm-picker
-            v-model="characterForm[item.key]"
-            :options="item.options"
-            :placeholder="item.placeholder"
-          ></xm-picker>
+              v-model="characterForm[item.key]"
+              :options="item.options"
+              :placeholder="item.placeholder"
+            ></xm-picker>
           </template>
         </view>
       </u-form-item>
-    </u-form>
 
-    <button class="cu-btn bg-red margin-tb-sm lg" @tap="generateJson">生成JSON</button>
+      
+    </u-form>
+    <button class="cu-btn bg-red margin-tb-sm margin-lr-sm lg" @tap="generateJson">生成JSON</button>
 
     <u-input v-if="jsonStr!==''" v-model="jsonStr" type="textarea" border :focus="true" :maxlength="Infinity" />
   </view>
