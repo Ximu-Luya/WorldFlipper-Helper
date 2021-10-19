@@ -22,7 +22,6 @@ export default {
 
         // 获取底部安全区域
         Vue.prototype.bottomSafeArea = e.screenHeight - e.safeArea.bottom
-        console.log(e);
       },
     });
   },

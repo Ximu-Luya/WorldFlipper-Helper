@@ -8,7 +8,7 @@
       @confirm="confirm"
     ></u-select>
     <view class="selector-button" @tap="show = true">
-      {{value.label || placeholder}}
+      {{curValue.label || placeholder}}
     </view>
   </view>
 </template>
@@ -19,6 +19,7 @@ export default {
     virtualHost: true
   },
   props: {
+    // 选项
     options: {
       type: Array,
       default: []
@@ -27,6 +28,7 @@ export default {
       type: String,
       default: '请选择'
     },
+    // 绑定值
     value: {
       default: null
     }
@@ -34,11 +36,13 @@ export default {
   data(){
     return {
       show: false,
+      curValue: null
     }
   },
   methods: {
     confirm(data){
-      this.$emit('input', data[0])
+      this.curValue = data[0]
+      this.$emit('input', data[0].value)
     }
   }
 }
