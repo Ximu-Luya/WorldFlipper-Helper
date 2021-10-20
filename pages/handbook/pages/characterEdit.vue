@@ -335,7 +335,6 @@ export default {
         },
       ],
       abilitysIndex: [1,2,3,4,5,6],
-      weaponForm: {},
     };
   },
   methods: {
@@ -368,7 +367,7 @@ export default {
         },
       }]
     })
-    // this.$refs['characterForm'].setRules(rules);
+    this.$refs['characterForm'].setRules(rules);
   }
 };
 </script>
