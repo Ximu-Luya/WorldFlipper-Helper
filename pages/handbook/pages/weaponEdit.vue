@@ -103,6 +103,7 @@ const attributeOptions = [
   { value: "water", label: "水" },
   { value: "light", label: "光" },
   { value: "dark", label: "暗" },
+  { value: "all", label: "全" },
 ];
 
 
