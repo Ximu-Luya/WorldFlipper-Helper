@@ -80,7 +80,7 @@
     </u-form>
     
     <!-- 生成JSON按钮 -->
-    <button class="cu-btn bg-red margin-tb-sm margin-lr-sm lg" @tap="generateJson">生成JSON</button>
+    <button class="cu-btn bg-red margin-tb-sm margin-lr-sm lg" @tap="confirmEdit">生成JSON</button>
     <!-- JSON文本显示 -->
     <u-input v-if="jsonStr!==''" v-model="jsonStr" type="textarea" border :focus="true" :maxlength="Infinity" />
   </view>
@@ -198,7 +198,7 @@ export default {
       return `${first}_${second}`
     },
     // 生成JSON字符串
-    generateJson(){
+    confirmEdit(){
       this.$refs['weaponForm'].validate(valid => {
         if(valid) {
           this.jsonStr = JSON.stringify(this.$refs['weaponForm'].model, null, 4)

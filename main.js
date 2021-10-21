@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-import store from './store/index'
+import store from './utils/store/index'
 
 import topNav from "./components/topNav.vue";
 import footNav from "./components/footNav.vue";
