@@ -78,7 +78,6 @@
 </template>
 
 <script>
-import XmPicker from "../../../components/picker.vue";
 
 // 星级选项
 const starRatingOptions = [
@@ -127,7 +126,6 @@ const sexOptions = [
 ];
 
 export default {
-  components: { XmPicker },
   data() {
     return {
       bottomSafeArea: this.bottomSafeArea+'px',

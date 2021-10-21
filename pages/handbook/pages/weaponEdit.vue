@@ -42,15 +42,15 @@
       </u-form-item>
 
       <!-- 武器每级能力 -->
-      <template v-for="(propItem, index) in awakableProp">
-        <view class="cu-bar bg-white solid-bottom margin-top" :key="index">
+      <template v-for="propItem in awakableProp">
+        <view class="cu-bar bg-white solid-bottom margin-top" :key="propItem">
           <view class="action">
             <text class="cuIcon-title text-blue"></text>{{propItem==='skill'?'武器效果':propItem}}
           </view>
         </view>
-        <template v-for="(item, index) in awakeLvIndex">
+        <template v-for="item in awakeLvIndex">
           <u-form-item
-            :key="index"
+            :key="secondKey(propItem,item)"
             :prop="`${propItem}_${item}`"
             v-if="!weaponForm.isOnlyMax || item===4"
           >
@@ -77,7 +77,6 @@
           </u-form-item>
         </template>
       </template>
-      
     </u-form>
     
     <!-- 生成JSON按钮 -->
@@ -88,8 +87,6 @@
 </template>
 
 <script>
-import XmPicker from "../../../components/picker.vue";
-
 // 星级选项
 const starRatingOptions = [
   { value: 1, label: "1星" },
@@ -110,7 +107,6 @@ const attributeOptions = [
 
 
 export default {
-  components: { XmPicker },
   data() {
     return {
       bottomSafeArea: this.bottomSafeArea+'px',
@@ -196,6 +192,10 @@ export default {
     };
   },
   methods: {
+    // 嵌套template的key绑定
+    secondKey(first, second){
+      return `${first}_${second}`
+    },
     // 生成JSON字符串
     generateJson(){
       this.$refs['weaponForm'].validate(valid => {
