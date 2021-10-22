@@ -10,10 +10,22 @@ export default {
     generateJson: (state) => {
       return JSON.stringify(state, null, 4);
     },
+    // 通过uuid查询角色
+    getCharacterByUuid: (state) => (uuid) => {
+      return state.characters.find(
+        (item) => item.uuid === uuid
+      );
+    },
+    // 通过uuid查询武器
+    getWeaponByUuid: (state) => (uuid) => {
+      return state.weapons.find(
+        (item) => item.uuid === uuid
+      );
+    },
   },
   mutations: {
     // 初始化武器数据
-    initWeapons(state, weapons){
+    initWeapons(state, weapons) {
       state.weapons = weapons;
     },
     // 初始化角色数据
@@ -25,7 +37,9 @@ export default {
     // 获取图鉴数据
     async getHandbookData({ commit }) {
       const weapons = [weapon];
+      const characters = [];
       commit("initWeapons", weapons);
+      commit("initCharacters", characters);
     },
   },
 };
