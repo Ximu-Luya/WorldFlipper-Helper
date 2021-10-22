@@ -4,24 +4,28 @@
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/handbook/pages/weaponEdit",
-			"style": {}
-		},
-		{
 			"path": "pages/index",
 			"style": {}
-		},
+		}
+	],
+	"subpackages": [
 		{
-			"path": "pages/handbook/pages/weaponDetail",
-			"style": {}
-		},
-		{
-			"path": "pages/handbook/pages/characterDetail",
-			"style": {}
-		},
-		{
-			"path": "pages/handbook/pages/characterEdit",
-			"style": {}
+			"root": "pages/handbook",
+			"name": "handbook",
+			"pages": [
+				{
+					"path": "pages/characterDetail"
+				},
+				{
+					"path": "pages/characterEdit"
+				},
+				{
+					"path": "pages/weaponDetail"
+				},
+				{
+					"path": "pages/weaponEdit"
+				}
+			]
 		}
 	],
 	"globalStyle": {

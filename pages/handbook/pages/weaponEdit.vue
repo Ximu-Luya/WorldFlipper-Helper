@@ -48,7 +48,7 @@
             <text class="cuIcon-title text-blue"></text>{{propItem==='skill'?'武器效果':propItem}}
           </view>
         </view>
-        <template v-for="item in awakeLvIndex">
+        <template v-for="item in awakeLv">
           <u-form-item
             :key="secondKey(propItem,item)"
             :prop="`${propItem}_${item}`"
@@ -81,12 +81,12 @@
     
     <!-- 生成JSON按钮 -->
     <button class="cu-btn bg-red margin-tb-sm margin-lr-sm lg" @tap="confirmEdit">生成JSON</button>
-    <!-- JSON文本显示 -->
-    <u-input v-if="jsonStr!==''" v-model="jsonStr" type="textarea" border :focus="true" :maxlength="Infinity" />
   </view>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import uuid from '@/utils/uuid.js'
 // 星级选项
 const starRatingOptions = [
   { value: 1, label: "1星" },
@@ -110,8 +110,9 @@ const attributeOptions = [
 export default {
   data() {
     return {
+      // 底部安全区域
       bottomSafeArea: this.bottomSafeArea+'px',
-      jsonStr: '',
+      // 武器信息表单
       weaponForm: {
         cnName: "",
         jpName: "",
@@ -136,6 +137,7 @@ export default {
         skill_3: "",
         skill_4: "",
       },
+      // 表单配置项
       formConfig: [
         {
           key: "cnName",
@@ -188,7 +190,9 @@ export default {
           marginTop: true,
         },
       ],
-      awakeLvIndex: [0,1,2,3,4],
+      // 觉醒等级
+      awakeLv: [0,1,2,3,4],
+      // 随觉醒等级变化的信息
       awakableProp: ['HP', 'ATK', 'skill']
     };
   },
@@ -197,14 +201,19 @@ export default {
     secondKey(first, second){
       return `${first}_${second}`
     },
-    // 生成JSON字符串
+    // 确认编辑
     confirmEdit(){
       this.$refs['weaponForm'].validate(valid => {
+          console.log(uuid.generate());
         if(valid) {
-          this.jsonStr = JSON.stringify(this.$refs['weaponForm'].model, null, 4)
+          this.setWeaponInfo(this.$refs['weaponForm'].model)
         }
       })
     },
+    ...mapActions('contributor', ['setWeaponInfo'])
+  },
+  onLoad(query){
+    console.log(query);
   },
   onReady() {
     let rules = {}
@@ -215,7 +224,7 @@ export default {
      * 允许只填写Max觉醒等级的信息
      */
     this.awakableProp.forEach(item => {
-      this.awakeLvIndex.forEach(index => {
+      this.awakeLv.forEach(index => {
         rules[`${item}_${index}`] = index === 4
         ? [{
           required: true, 

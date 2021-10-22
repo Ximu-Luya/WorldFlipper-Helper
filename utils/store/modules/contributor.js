@@ -45,6 +45,8 @@ export default {
             payload.data
           ))
         : state[payload.type].push(payload.data);
+      
+      console.log(state);
     },
   },
   actions: {
@@ -57,7 +59,7 @@ export default {
       commit(setDataByUuid, { type: "characters", data });
     },
     // 替换指定武器信息
-    setChatacterInfo({ commit }, data) {
+    setWeaponInfo({ commit }, data) {
       commit(setDataByUuid, { type: "weapons", data });
     },
   },
