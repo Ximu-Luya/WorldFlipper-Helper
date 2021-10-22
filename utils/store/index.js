@@ -1,8 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
-import filters from './modules/filters.js'
+import filters from "./modules/filters.js";
 import handbook from "./modules/handbook.js";
+import contributor from "./modules/contributor.js";
 
 Vue.use(Vuex);
 
@@ -29,6 +30,7 @@ const store = new Vuex.Store({
   modules: {
     filters,
     handbook,
+    contributor,
   },
 });
 

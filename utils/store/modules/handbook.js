@@ -1,4 +1,4 @@
-import weapon from '@/static/weapon.json'
+import weapon from "@/static/weapon.json";
 export default {
   namespaced: true,
   state: {
@@ -6,10 +6,6 @@ export default {
     weapons: [],
   },
   getters: {
-    // 返回所有数据的JSON字符串
-    generateJson: (state) => {
-      return JSON.stringify(state, null, 4);
-    },
     // 通过uuid查询角色
     getCharacterByUuid: (state) => (uuid) => {
       return state.characters.find(
@@ -35,11 +31,17 @@ export default {
   },
   actions: {
     // 获取图鉴数据
-    async getHandbookData({ commit }) {
+    async getHandbookData({ commit, dispatch }) {
       const weapons = [weapon];
       const characters = [];
       commit("initWeapons", weapons);
       commit("initCharacters", characters);
+      // 同步贡献者的本地数据
+      dispatch(
+        "contributor/syncHandbookData",
+        { weapons, characters },
+        { root: true }
+      );
     },
   },
 };
