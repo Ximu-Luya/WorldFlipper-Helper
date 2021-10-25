@@ -3,10 +3,54 @@
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		// {
+		// 	"path": "pages/index"
+		// },
 		{
-			"path": "pages/index"
+			"path": "pages/home/index"
+		},
+		{
+			"path": "pages/handbook/index"
+		},
+		{
+			"path": "pages/lineup/index"
+		},
+		{
+			"path": "pages/about/index"
 		}
 	],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/home/index",
+				"iconPath": "static/image/tabbar/home.png",
+				"selectedIconPath": "static/image/tabbar/home_cur.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/handbook/index",
+				"iconPath": "static/image/tabbar/handbook.png",
+				"selectedIconPath": "static/image/tabbar/handbook_cur.png",
+				"text": "图鉴"
+			},
+			{
+				"pagePath": "pages/lineup/index",
+				"iconPath": "static/image/tabbar/lineup.png",
+				"selectedIconPath": "static/image/tabbar/lineup_cur.png",
+				"text": "阵容"
+			},
+			{
+				"pagePath": "pages/about/index",
+				"iconPath": "static/image/tabbar/about.png",
+				"selectedIconPath": "static/image/tabbar/about_cur.png",
+				"text": "关于"
+			}
+		]
+	},
 	"subpackages": [
 		{
 			"root": "subPages/handbook",

@@ -1,5 +1,7 @@
 <template>
   <view>
+    <!-- 头部导航栏 -->
+    <top-nav></top-nav>
     <view class="top-function-area">
       <view class="bg-white nav text-center">
         <view

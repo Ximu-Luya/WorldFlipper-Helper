@@ -1,6 +1,9 @@
 <template>
-<!--pages/about/index/index.wxml-->
-<battle-array></battle-array>
+  <view>
+    <!-- 头部导航栏 -->
+    <top-nav></top-nav>
+    <battle-array></battle-array>
+  </view>
 </template>
 
 <script>

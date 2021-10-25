@@ -1,6 +1,9 @@
 <template>
-<!--pages/about/index/index.wxml-->
-<text>武器</text>
+  <view>
+    <!-- 头部导航栏 -->
+    <top-nav></top-nav>
+    <text>阵容</text>
+  </view>
 </template>
 
 <script>
