@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import CuCustom from "../colorui/components/cu-custom.vue"
+import CuCustom from "../../colorui/components/cu-custom.vue"
 export default {
   data() {
     return {};

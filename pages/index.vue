@@ -47,7 +47,6 @@ import home from "./home/index.vue";
 import handbook from "./handbook/index.vue";
 import lineup from "./lineup/index.vue";
 import about from "./about/index.vue";
-import HandbookFilter from "./handbook/components/HandbookFilter.vue"
 import { mapState, mapMutations } from 'vuex'
 
 export default {
@@ -64,7 +63,6 @@ export default {
     handbook,
     lineup,
     about,
-    HandbookFilter
   },
   props: {},
   methods: {
