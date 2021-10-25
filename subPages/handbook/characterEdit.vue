@@ -72,8 +72,6 @@
     
     <!-- 生成JSON按钮 -->
     <button class="cu-btn bg-red margin-tb-sm margin-lr-sm lg" @tap="generateJson">生成JSON</button>
-    <!-- JSON文本显示 -->
-    <u-input v-if="jsonStr!==''" v-model="jsonStr" type="textarea" border :focus="true" :maxlength="Infinity" />
   </view>
 </template>
 
@@ -129,7 +127,6 @@ export default {
   data() {
     return {
       bottomSafeArea: this.bottomSafeArea+'px',
-      jsonStr: '',
       characterForm: {
         cnName: "",
         jpName: "",
@@ -344,7 +341,7 @@ export default {
     generateJson(){
       this.$refs['characterForm'].validate(valid => {
         if(valid) {
-          this.jsonStr = JSON.stringify(this.$refs['characterForm'].model, null, 4)
+          JSON.stringify(this.$refs['characterForm'].model, null, 4)
         }
       })
     },

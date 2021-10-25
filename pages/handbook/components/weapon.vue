@@ -19,7 +19,7 @@ export default {
   components: {Avatar},
   methods: {
     checkDetail(id){
-      uni.navigateTo({ url: '/pages/handbook/pages/weaponDetail' })
+      uni.navigateTo({ url: '/subPages/handbook/weaponDetail' })
     }
   }
 };
