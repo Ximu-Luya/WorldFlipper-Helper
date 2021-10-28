@@ -1,6 +1,6 @@
 <template>
-  <view class="character-list bg-white grid grid-square col-5">
-    <template v-for="(item, index) in characters">
+  <view class="weapon-list bg-white grid grid-square col-5">
+    <template v-for="(item, index) in weapons">
       <avatar :key="index" :avatar-info="item" @tap="checkDetail(item.star)"/>
     </template>
   </view>
@@ -10,9 +10,12 @@
 import Avatar from '../../../components/avatar.vue'
 
 export default {
+  options: {
+    virtualHost: true
+  },
   data(){
     return {
-      characters: new Array(100).fill({star: 5, attribute: 'fire', avatarImg: '/static/image/weapon.png'}, 0, 100)
+      weapons: new Array(100).fill({star: 5, attribute: 'fire', avatarImg: '/static/image/weapon.png'}, 0, 100)
     }
   },
   mounted(){},
@@ -26,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss">
-.character-list{
+.weapon-list{
   padding: 20rpx 20rpx;
 }
 </style>

@@ -10,6 +10,9 @@
 import Avatar from '../../../components/avatar.vue'
 
 export default {
+  options: {
+    virtualHost: true
+  },
   data(){
     return {
       characters: new Array(100).fill({star: 5, attribute: 'wind', avatarImg: '/static/image/avatar.png'}, 0, 100)
