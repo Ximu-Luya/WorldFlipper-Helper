@@ -76,7 +76,6 @@
 </template>
 
 <script>
-
 // 星级选项
 const starRatingOptions = [
   { value: 1, label: "1星" },

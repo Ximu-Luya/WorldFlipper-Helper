@@ -14,6 +14,12 @@
         <view class="avatar-info">
           <image class="img" :src="weaponImg" />
           <image class="star" :src="`/static/image/icon/star-${starRating}.png`"/>
+          
+          <button
+            class="cu-btn sm line-grey round shadow"
+            style="margin-top: 40rpx"
+            @tap="jumpToEdit"
+          >编辑信息</button>
         </view>
         
         <view class="weapon-info">
@@ -94,6 +100,8 @@ export default {
       CustomBar: this.CustomBar,
       // 入手方法模态框
       modal: false,
+      // 唯一标识符
+      uuid: "5972098b-4aac-4ae9-9817-927177309632",
       // 武器图标
       weaponImg: 'https://wf.hotimi.com/assets/upload/c4e2c1a4-f269-44a7-8da5-d1eb88646d0c.png',
       // 武器名称
@@ -126,7 +134,11 @@ export default {
     // 显示入手方法模态框
     showObtain() { this.modal = true },
     // 隐藏入手方法模态框
-    hideObtain(){ this.modal = false }
+    hideObtain(){ this.modal = false },
+    // 跳转编辑页
+    jumpToEdit(){
+      uni.navigateTo({url: `/subPages/handbook/weaponEdit?mode=edit&uuid=${this.uuid}`})
+    }
   }
 }
 </script>

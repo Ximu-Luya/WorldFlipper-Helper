@@ -5,6 +5,16 @@
     <!-- 立绘背景 -->
     <view class="tachie-img" :style="{backgroundImage: `url(${commonTachie})`, height: `calc(100vh - ${CustomBar}px)`}"></view>
 
+    <!-- 固定按钮组 -->
+    <view class="func-area" :style="{top: `calc(${CustomBar}px + 40rpx)`}">
+      <button class="circle-button cu-btn round" @tap="jumpToEdit">
+        <u-icon name="edit-pen"></u-icon>
+      </button>
+      <button class="circle-button cu-btn round">
+        <u-icon name="photo"></u-icon>
+      </button>
+    </view>
+
     <!-- 滚动的详细信息查看 -->
     <scroll-view
       scroll-y
@@ -114,6 +124,8 @@ export default {
       CustomBar: this.CustomBar,
       // 角色信息是否被上拉
       isDown: false,
+      // 角色唯一标识符
+      uuid: '2e42b364-4c0b-47ef-8caf-88bca167390f',
       // 普通立绘
       commonTachie: 'https://wf.hotimi.com/assets/upload/pic/61c95699-645d-43f5-98fd-c552fefff5d1.png',
       // 觉醒立绘
@@ -187,6 +199,10 @@ export default {
     // 切换箭头
     toggleArrow(isDown){
       this.isDown = isDown
+    },
+    // 跳转编辑页
+    jumpToEdit(){
+      uni.navigateTo({url: `/subPages/handbook/characterEdit?mode=edit&uuid=${this.uuid}`})
     }
   }
 }
@@ -208,6 +224,25 @@ page {
     background-position:center center;
     background-size: cover;
     width: 100vw;
+  }
+
+  // 固定按钮组
+  .func-area{
+    position: fixed;
+    right: 20rpx;
+
+    .circle-button{
+      border-radius: 50%;
+      border: 2rpx solid #f4f4f5;
+      height: 60rpx;
+      width: 60rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20rpx;
+      background-color: white;
+      box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
   }
 
   .character-detail{
@@ -471,5 +506,4 @@ page {
     }
   }
 }
-
 </style>

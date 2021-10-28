@@ -56,11 +56,11 @@ export default {
     },
     // 替换指定角色信息
     setChatacterInfo({ commit }, data) {
-      commit(setDataByUuid, { type: "characters", data });
+      commit("setDataByUuid", { type: "characters", data });
     },
     // 替换指定武器信息
     setWeaponInfo({ commit }, data) {
-      commit(setDataByUuid, { type: "weapons", data });
+      commit("setDataByUuid", { type: "weapons", data });
     },
   },
 };

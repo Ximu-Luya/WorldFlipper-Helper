@@ -25,6 +25,8 @@ export default {
      * 获取角色与武器信息
      */
     this.getHandbookData()
+
+    uni.navigateTo({ url: '/subPages/handbook/weaponDetail' })
   },
   methods: {
     ...mapActions('handbook',['getHandbookData'])

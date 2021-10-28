@@ -86,7 +86,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import uuid from '@/utils/uuid.js'
+import { create_uuid } from '@/utils/uuid.js'
 // 星级选项
 const starRatingOptions = [
   { value: 1, label: "1星" },
@@ -203,8 +203,8 @@ export default {
     },
     // 确认编辑
     confirmEdit(){
+      console.log(create_uuid());
       this.$refs['weaponForm'].validate(valid => {
-          console.log(uuid.generate());
         if(valid) {
           this.setWeaponInfo(this.$refs['weaponForm'].model)
         }
