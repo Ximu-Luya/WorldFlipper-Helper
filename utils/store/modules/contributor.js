@@ -45,7 +45,7 @@ export default {
             payload.data
           ))
         : state[payload.type].push(payload.data);
-      
+
       console.log(state);
     },
   },

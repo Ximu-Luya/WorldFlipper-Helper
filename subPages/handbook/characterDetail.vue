@@ -28,6 +28,7 @@
       <view class="space" @tap="viewTachie"></view>
       
       <view class="content" :class="{'down': isDown}">
+        <view class="background-image"></view>
         <!-- 角色基础信息 -->
         <view class="basic-info">
           <view class="avatar">
@@ -261,6 +262,23 @@ page {
       position: relative;
       z-index: -90;
       box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+
+      .background-image{
+        height: 100%;
+        width: 100%;
+
+        &::before{
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url(/static/image/icon/panel_bg.png);
+          filter: invert(100%) brightness(1.2);
+          z-index: -89;
+        }
+      }
 
       &::before{
         content: '';

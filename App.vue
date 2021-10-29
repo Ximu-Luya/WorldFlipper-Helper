@@ -26,7 +26,7 @@ export default {
      */
     this.getHandbookData()
 
-    uni.navigateTo({ url: '/subPages/handbook/weaponDetail' })
+    uni.navigateTo({ url: '/subPages/handbook/characterDetail' })
   },
   methods: {
     ...mapActions('handbook',['getHandbookData'])
