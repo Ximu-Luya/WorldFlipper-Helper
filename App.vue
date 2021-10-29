@@ -26,7 +26,7 @@ export default {
      */
     this.getHandbookData()
 
-    uni.navigateTo({ url: '/subPages/handbook/characterDetail' })
+    uni.switchTab({ url: '/pages/handbook/index' })
   },
   methods: {
     ...mapActions('handbook',['getHandbookData'])

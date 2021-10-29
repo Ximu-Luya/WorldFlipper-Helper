@@ -1,13 +1,13 @@
 <template>
   <view class="avatar-container bg-img">
     <view class="avatar">
-      <image :src="avatarInfo.avatarImg" lazy-load>
+      <image :src="`https://wf.hotimi.com/assets${avatarInfo.avatar}`" lazy-load>
     </view>
     <view class="star">
       <image :src="`/static/image/icon/star-${avatarInfo.star}.png`" lazy-load>
     </view>
     <view class="attribute">
-      <image :src="`/static/image/icon/${avatarInfo.attribute}.png`" lazy-load>
+      <image :src="`/static/image/icon/${avatarInfo.naturalProperties}.png`" lazy-load>
     </view>
   </view>
 </template>

@@ -1,28 +1,24 @@
 <template>
   <view class="character-list bg-white grid grid-square col-5">
     <template v-for="(item, index) in characters">
-      <avatar :key="index" :avatar-info="item" @tap="checkDetail(item.star)"/>
+      <avatar :key="index" :avatar-info="item" @tap="checkDetail(item.uuid)"/>
     </template>
   </view>
 </template>
 
 <script>
 import Avatar from '../../../components/avatar.vue'
+import { mapState } from 'vuex';
 
 export default {
   options: {
     virtualHost: true
   },
-  data(){
-    return {
-      characters: new Array(100).fill({star: 5, attribute: 'wind', avatarImg: '/static/image/avatar.png'}, 0, 100)
-    }
-  },
-  mounted(){},
+  computed: mapState('handbook',['characters']),
   components: {Avatar},
   methods: {
-    checkDetail(id){
-      uni.navigateTo({ url: '/subPages/handbook/characterDetail' })
+    checkDetail(uuid){
+      uni.navigateTo({ url: `/subPages/handbook/characterDetail?uuid=${uuid}` })
     }
   }
 };

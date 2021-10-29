@@ -118,11 +118,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data(){
     return {
       // 顶部导航栏高度
       CustomBar: this.CustomBar,
+      // 角色uuid
+      uuid: "",
       // 角色信息是否被上拉
       isDown: false,
       // 角色唯一标识符
@@ -184,11 +188,17 @@ export default {
       CV: '麻仓もも'
     }
   },
-  computed:{
-    
+  onLoad(query) {
+    console.log(query);
+    this.uuid = query.uuid
+    console.log(this.uuid);
   },
-  props: [],
-  mounted(){},
+  computed: {
+    ...mapGetters('handbook', ['getCharacterByUuid']),
+    character() {
+      return this.getCharacterByUuid(this.uuid)
+    }
+  },
   methods: {
     // 预览立绘
     viewTachie(){

@@ -1,4 +1,4 @@
-import weapon from "@/static/weapon.json";
+import character from "@/static/character.json";
 export default {
   namespaced: true,
   state: {
@@ -32,8 +32,8 @@ export default {
   actions: {
     // 获取图鉴数据
     async getHandbookData({ commit, dispatch }) {
-      const weapons = [weapon];
-      const characters = [];
+      const weapons = [];
+      const characters = [character];
       commit("initWeapons", weapons);
       commit("initCharacters", characters);
       // 同步贡献者的本地数据
